@@ -68,13 +68,15 @@ an unconditional command: if no code changed, say no PR is needed; if PR creatio
 is blocked by auth, failing tests, or missing remote state, report that blocker
 instead of pretending the run is complete.
 
-Use a routable issue key in the PR title, body, or branch so the webhook can link
-the PR back to the issue. If the PR should close the issue on merge, put the key
-immediately after a closing keyword in the title or body, for example:
+To make the PR show on the issue, put a routable issue key in the PR **title**
+(preferred) or the **branch**. A key that appears only as a bare mention in the
+body is reference-only and hidden from the issue PR list. Do not use a closing
+keyword (`Closes` / `Fixes` / `Resolves`) unless the issue should auto-advance
+to `done` on merge.
 
 ```text
-MUL-123: fix login redirect        # links only
-Closes MUL-123                     # links and records close intent
+MUL-123: fix login redirect        # title prefix → links and shown
+Closes MUL-123                     # only when merge should mark the issue done
 ```
 
 In the final issue comment, include the PR URL when a PR exists. If the task did
