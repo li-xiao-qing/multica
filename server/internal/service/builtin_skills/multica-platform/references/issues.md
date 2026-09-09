@@ -23,7 +23,7 @@ reference-only rule below: a key that appears **only** as a bare mention in the
 body is linked yet hidden from that list.
 
 ```text
-MUL-123: add the thing the issue asks for        # title prefix → links, shown
+MUL-123: add the thing the issue asks for        # key anywhere in title → links, shown
 agent/dana/mul-123-add-the-thing             # branch ref   → links, shown
 ```
 
@@ -40,8 +40,8 @@ Resolves MUL-123
 Fix login MUL-123                                 # links only — keyword not adjacent
 ```
 
-Consequence: a bare title prefix or a branch reference links the PR but does not
-close the issue on merge. A closing keyword immediately adjacent to the issue key
+Consequence: a bare key in the title or a branch reference links the PR but does
+not close the issue on merge. A closing keyword immediately adjacent to the issue key
 records close intent; on merge, that close intent can move the linked issue to
 `done`.
 
@@ -75,7 +75,7 @@ keyword (`Closes` / `Fixes` / `Resolves`) unless the issue should auto-advance
 to `done` on merge.
 
 ```text
-MUL-123: fix login redirect        # title prefix → links and shown
+MUL-123: fix login redirect        # key anywhere in title → links and shown
 Closes MUL-123                     # only when merge should mark the issue done
 ```
 
